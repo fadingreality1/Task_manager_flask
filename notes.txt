@@ -1,0 +1,16 @@
+static:-
+used to store pages that are to be send to client as it is.
+
+to access contents of static folder through browser:-
+"http://127.0.0.1:5000/static/<File_name>"
+
+template:-
+used to create template for other pages that are to be sent to client.
+
+
+routes:-
+
+routes are end points where content is located.
+
+ 
+

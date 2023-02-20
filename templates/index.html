@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock title %}
+{% block body %}
+<div class="container my-3">
+    <form action="/" method="post">
+        <h2>New Adventure ?</h2>
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" name="title" id="title" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">Write any thing you want to achieve in your life.</div>
+        </div>
+        <div class="mb-3">
+            <label for="desc" class="form-label">Description</label>
+            <input type="text" name ="desc" class="form-control" id="desc">
+        </div>
+        <button type="submit" class="btn btn-primary btn-dark ">Ready to go.</button>
+    </form>
+</div>
+
+<div class="container my-3">
+    <h2>Adventures</h2>
+    {% if alladventures|length == 0 %}
+    <div class="alert alert-dark" role="alert">
+        No Reconds Found.
+      </div> 
+    {% else %}
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Sr. No.</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Time</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for task in alladventures %}
+            <tr>
+                <th scope="row">{{loop.index}}</th>
+                <td>{{task.title}}</td>
+                <td>{{task.desc}}</td>
+                <td>{{task.time}}</td>
+                <td><a href="/update/{{task.sno}}"><button type="button" class="btn btn-dark btn-sm mx-1">Update</button></a><a href="/delete/{{task.sno}}"><button type="button" class="btn btn-dark btn-sm mx-1">Delete</button></a></td>
+                
+              </tr> 
+            {% endfor %}
+          
+        </tbody>
+    </table>
+        
+    {% endif %}
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+
+{% endblock body %}

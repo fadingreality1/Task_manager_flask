@@ -3,22 +3,22 @@
 {% block body %}
 <div class="container my-3">
     <form action="/" method="post">
-        <h2>New Adventure ?</h2>
+        <h2>New Task? </h2>
         <div class="mb-3">
-            <label for="title" class="form-label">Title</label>
+            <label for="title" class="form-label"> <h3>Title</h3> </label>
             <input type="text" class="form-control" name="title" id="title" aria-describedby="emailHelp">
             <div id="emailHelp" class="form-text">Title can not be blank</div>
         </div>
         <div class="mb-3">
-            <label for="desc" class="form-label">Description</label>
+            <label for="desc" class="form-label"><h3>Description</h3></label>
             <input type="text" name="desc" class="form-control" id="desc">
         </div>
-        <button type="submit" class="btn btn-primary btn-dark ">Ready to go.</button>
+        <button type="submit" class="btn btn-primary btn-dark ready">Ready to go.</button>
     </form>
 </div>
 
 <div class="container my-3">
-    <h2>Adventures</h2>
+    <h2>All Tasks</h2>
     {% if alladventures|length == 0 %}
     <div class="alert alert-dark" role="alert">
         No Reconds Found.
@@ -42,8 +42,8 @@
                 <td>{{task.desc}}</td>
                 <td>{{task.time}}</td>
                 <td><a href="/update/{{task.sno}}"><button type="button"
-                            class="btn btn-dark btn-sm mx-1">Update</button></a><a href="/delete/{{task.sno}}"><button
-                            type="button" class="btn btn-dark btn-sm mx-1">Delete</button></a></td>
+                            class="btn btn-dark btn-sm mx-1 update">Update</button></a><a href="/delete/{{task.sno}}"><button
+                            type="button" class="btn btn-dark btn-sm mx-1 delete">Delete</button></a></td>
 
             </tr>
             {% endfor %}

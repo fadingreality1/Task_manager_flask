@@ -5,10 +5,13 @@ from datetime import datetime
 
 app = Flask(__name__)
 
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://newuser:password@127.0.0.1/Adventure'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
+
 db = SQLAlchemy(app)
+
 
 class Adventure(db.Model):
     sno = db.Column(db.Integer, primary_key = True)
@@ -46,17 +49,18 @@ def update(sno):
         return redirect('/')
     updated = Adventure.query.filter_by(sno = sno).first()
     return render_template('update.html', task = updated)
-    
-    
+
+
 @app.route('/delete/<int:sno>')
 def delete(sno):
     Adventure.query.filter_by(sno=sno).delete()
     db.session.commit()
     return redirect('/')
-    
+
 
 if __name__ == "__main__":
     # ? app.app_context() is necessarry as without it, table won't be created
     with app.app_context():
         db.create_all()
-        app.run(debug=True)
+        app.run(debug=False)
+

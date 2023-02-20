@@ -31,7 +31,7 @@ def hello():
         adventure = Adventure(title = title, desc = desc) 
         db.session.add(adventure)
         db.session.commit()
-        
+      
     alladventures = Adventure.query.all()
     return render_template('index.html',alladventures = alladventures)
 
@@ -43,7 +43,7 @@ def update(sno):
         desc = request.form['desc']
         task = Adventure.query.filter_by(sno = sno).first()
         task.title = title
-        task.desc = desc 
+        task.desc = desc
         db.session.add(task)
         db.session.commit()
         return redirect('/')

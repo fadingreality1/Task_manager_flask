@@ -31,7 +31,7 @@ def hello():
         adventure = Adventure(title = title, desc = desc) 
         db.session.add(adventure)
         db.session.commit()
-      
+
     alladventures = Adventure.query.all()
     return render_template('index.html',alladventures = alladventures)
 
@@ -63,4 +63,3 @@ if __name__ == "__main__":
     with app.app_context():
         db.create_all()
         app.run(debug=False)
-

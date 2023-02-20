@@ -11,7 +11,7 @@
         </div>
         <div class="mb-3">
             <label for="desc" class="form-label">Description</label>
-            <input type="text" name ="desc" class="form-control" id="desc">
+            <input type="text" name="desc" class="form-control" id="desc">
         </div>
         <button type="submit" class="btn btn-primary btn-dark ">Ready to go.</button>
     </form>
@@ -22,33 +22,33 @@
     {% if alladventures|length == 0 %}
     <div class="alert alert-dark" role="alert">
         No Reconds Found.
-      </div> 
+    </div>
     {% else %}
     <table class="table table-hover">
         <thead>
-          <tr>
-            <th scope="col">Sr. No.</th>
-            <th scope="col">Title</th>
-            <th scope="col">Description</th>
-            <th scope="col">Time</th>
-            <th scope="col">Actions</th>
-          </tr>
+            <tr>
+                <th scope="col">Sr. No.</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Time</th>
+                <th scope="col">Actions</th>
+            </tr>
         </thead>
         <tbody>
-            {% for task in alladventures %}
+        {% for task in alladventures %}
             <tr>
                 <th scope="row">{{loop.index}}</th>
                 <td>{{task.title}}</td>
                 <td>{{task.desc}}</td>
                 <td>{{task.time}}</td>
-                <td><a href="/update/{{task.sno}}"><button type="button" class="btn btn-dark btn-sm mx-1">Update</button></a><a href="/delete/{{task.sno}}"><button type="button" class="btn btn-dark btn-sm mx-1">Delete</button></a></td>
-                
-              </tr> 
+                <td><a href="/update/{{task.sno}}"><button type="button"
+                            class="btn btn-dark btn-sm mx-1">Update</button></a><a href="/delete/{{task.sno}}"><button
+                            type="button" class="btn btn-dark btn-sm mx-1">Delete</button></a></td>
+
+            </tr>
             {% endfor %}
-          
         </tbody>
     </table>
-        
     {% endif %}
 </div>
 

@@ -22,6 +22,9 @@ def hello():
     if request.method == 'POST':
         title = request.form['title']
         desc = request.form['desc']
+        if title == '':
+            alladventures = Adventure.query.all()
+            return render_template('index.html',alladventures = alladventures)
         adventure = Adventure(title = title, desc = desc) 
         db.session.add(adventure)
         db.session.commit()

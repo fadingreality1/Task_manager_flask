@@ -62,4 +62,4 @@ if __name__ == "__main__":
     # ? app.app_context() is necessarry as without it, table won't be created
     with app.app_context():
         db.create_all()
-        app.run(debug=False)
+        app.run(debug=False,host = '0.0.0.0')

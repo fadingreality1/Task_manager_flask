@@ -4,14 +4,20 @@
 <div class="container my-3">
     <form action="/" method="post">
         <h2>New Task? </h2>
-        <div class="mb-3">
-            <label for="title" class="form-label"> <h3>Title</h3> </label>
-            <input type="text" class="form-control" name="title" id="title" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text">Title can not be blank</div>
-        </div>
-        <div class="mb-3">
-            <label for="desc" class="form-label"><h3>Description</h3></label>
-            <input type="text" name="desc" class="form-control" id="desc">
+        <div class="row">
+            <div class="mb-3 col">
+                <label for="title" class="form-label">
+                    <h3>Title</h3>
+                </label>
+                <input type="text" class="form-control" name="title" id="title" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">Title can not be blank</div>
+            </div>
+            <div class="mb-3 col">
+                <label for="desc" class="form-label">
+                    <h3>Description</h3>
+                </label>
+                <input type="text" name="desc" class="form-control" id="desc">
+            </div>
         </div>
         <button type="submit" class="btn btn-primary btn-dark ready">Ready to go.</button>
     </form>
@@ -35,15 +41,16 @@
             </tr>
         </thead>
         <tbody>
-        {% for task in alladventures %}
+            {% for task in alladventures %}
             <tr>
                 <th scope="row">{{loop.index}}</th>
                 <td>{{task.title}}</td>
                 <td>{{task.desc}}</td>
                 <td>{{task.time}}</td>
                 <td><a href="/update/{{task.sno}}"><button type="button"
-                            class="btn btn-dark btn-sm mx-1 update">Update</button></a><a href="/delete/{{task.sno}}"><button
-                            type="button" class="btn btn-dark btn-sm mx-1 delete">Delete</button></a></td>
+                            class="btn btn-dark btn-sm mx-1 update">Update</button></a><a
+                        href="/delete/{{task.sno}}"><button type="button"
+                            class="btn btn-dark btn-sm mx-1 delete">Delete</button></a></td>
 
             </tr>
             {% endfor %}

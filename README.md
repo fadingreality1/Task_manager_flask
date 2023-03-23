@@ -12,7 +12,7 @@ Simple Task manager with flask
 
 <img width="960" alt="image_2023-03-23_19-28-25" src="https://user-images.githubusercontent.com/114291201/227231519-75fed948-4464-4246-9429-17ddd6c46f06.png">
 
-4. we can delte tasks by simply clicking on delete button on right side of every task in table.
+4. we can delete tasks by simply clicking on delete button on right side of every task in table.
 
 ![image_2023-03-23_19-30-31](https://user-images.githubusercontent.com/114291201/227231891-59a222cb-e5f3-42a4-8a41-cbbf8fc54300.png)
 
